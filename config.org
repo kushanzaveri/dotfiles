@@ -10,11 +10,11 @@ Starting things off...
 Add repositories from which we'll load packages
 
 #+BEGIN_SRC emacs-lisp
-	(require 'package)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-  (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
-  (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-  (setq package-enable-at-startup nil)
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+(setq package-enable-at-startup nil)
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
