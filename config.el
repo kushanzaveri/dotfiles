@@ -11,20 +11,17 @@
 
 (require 'use-package)
 (setq 
-	      use-package-always-defer t
-	      use-package-always-ensure t)
+	use-package-always-defer t
+	use-package-always-ensure t)
 
 (use-package spacemacs-theme
   :init (load-theme 'spacemacs-dark t))
 
-(use-package evil)
-(evil-mode t)
+(use-package evil
+	:init (evil-mode t))
 
 (use-package powerline
 	:init (powerline-default-theme))
 
 (use-package flycheck
-:init (global-flycheck-mode))
-
-(use-package ace-window
-:init (global-set-key (kbd "M-o") 'ace-window))
+	:init (global-flycheck-mode))

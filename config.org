@@ -18,10 +18,10 @@ Add repositories from which we'll load packages
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
-  (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package)
-    (eval-when-compile (require 'use-package)))
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package)
+  (eval-when-compile (require 'use-package)))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
@@ -39,17 +39,17 @@ Add repositories from which we'll load packages
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
-	(use-package evil)
-	(evil-mode t)
+(use-package evil
+	:init (evil-mode t))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
-	(use-package powerline
-		:init (powerline-default-theme))
+(use-package powerline
+	:init (powerline-default-theme))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
-	(use-package flycheck
-  	:init (global-flycheck-mode))
+(use-package flycheck
+	:init (global-flycheck-mode))
 #+END_SRC
 
