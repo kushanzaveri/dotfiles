@@ -17,11 +17,27 @@
 (use-package spacemacs-theme
   :init (load-theme 'spacemacs-dark t))
 
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+(add-to-list 'default-frame-alist
+             '(font . "Source Code Pro-16"))
+
 (use-package evil
-	:init (evil-mode t))
+	:init (evil-mode t)
+				(global-display-line-numbers-mode))
 
 (use-package powerline
 	:init (powerline-default-theme))
 
 (use-package flycheck
 	:init (global-flycheck-mode))
+
+(use-package projectile)
+
+(use-package org-plus-contrib)
+
+(use-package ace-window
+	:init (global-set-key (kbd "M-o") 'ace-window))
+
+(setq initial-buffer-choice "*scratch*")
