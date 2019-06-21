@@ -19,4 +19,7 @@ export LSCOLORS=FxExBxDxCxegedabagacad
 
 alias cl="clear"
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/X11/bin:/usr/local/bin/scripts:/Users/kushanzaveri/Library/Python/2.7/bin:/Users/kushanzaveri/.vimpkg/bin:$HOME/.asdf/bin:$HOME/.asdf/shims"
+echo $PATH
+
+export PATH="$PATH:/usr/local/bin/scripts:~/Library/Python/2.7/bin:~/.vimpkg/bin:$HOME/.asdf/bin:$HOME/.asdf/shims"
+
