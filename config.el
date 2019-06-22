@@ -23,6 +23,9 @@
 (add-to-list 'default-frame-alist
              '(font . "Source Code Pro-16"))
 
+(use-package powerline
+	:init (powerline-default-theme))
+
 (use-package evil
 	:init (evil-mode t)
 	:config	
@@ -46,9 +49,6 @@
 
 			    "q" 'delete-window)))))
 
-(use-package powerline
-	:init (powerline-default-theme))
-
 (use-package flycheck
 	:init (global-flycheck-mode))
 
@@ -58,7 +58,3 @@
 
 (use-package ace-window
 	:init (global-set-key (kbd "M-o") 'ace-window))
-
-(setq initial-buffer-choice "*scratch*")
-
-(setq initial-buffer-choice "*scratch*")
