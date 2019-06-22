@@ -56,19 +56,25 @@ Add repositories from which we'll load packages
 (use-package evil
 	:init (evil-mode t)
 	:config	
-		(progn 
-			(global-display-line-numbers-mode)
-			(use-package evil-leader
-				:init (global-evil-leader-mode)
-				:config	
-					(progn	
-						(evil-leader/set-leader "SPC")
-						(evil-leader/set-key
-							"j" 'windmove-down
-							"k" 'windmove-up
-							"h" 'windmove-left
-							"l" 'windmove-right
-							"q" 'delete-window)))))
+	(progn 
+	    (global-display-line-numbers-mode)
+	    (use-package evil-leader
+		    :init (global-evil-leader-mode)
+		    :config	
+		    (progn	
+			(evil-leader/set-leader "SPC")
+			(evil-leader/set-key
+			    "j" 'windmove-down
+			    "k" 'windmove-up
+			    "h" 'windmove-left
+			    "l" 'windmove-right
+
+			    "J" (lambda () (interactive) (split-window-vertically) (windmove-down))
+			    "K" (lambda () (interactive) (split-window-vertically))
+			    "H" (lambda () (interactive) (split-window-horizontally))
+			    "L" (lambda () (interactive) (split-window-horizontally) (windmove-right))
+
+			    "q" 'delete-window)))))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
@@ -92,10 +98,6 @@ Add repositories from which we'll load packages
 #+BEGIN_SRC emacs-lisp
 (use-package ace-window
 	:init (global-set-key (kbd "M-o") 'ace-window))
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp
-(setq initial-buffer-choice "*scratch*")
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp

@@ -26,15 +26,25 @@
 (use-package evil
 	:init (evil-mode t)
 	:config	
-		(progn 
-			(global-display-line-numbers-mode)
-			(use-package evil-leader
-				:init (global-evil-leader-mode)
-				:config	
-					(progn	
-						(evil-leader/set-leader "SPC")
-						(evil-leader/set-key
-							"q" 'delete-window)))))
+	(progn 
+	    (global-display-line-numbers-mode)
+	    (use-package evil-leader
+		    :init (global-evil-leader-mode)
+		    :config	
+		    (progn	
+			(evil-leader/set-leader "SPC")
+			(evil-leader/set-key
+			    "j" 'windmove-down
+			    "k" 'windmove-up
+			    "h" 'windmove-left
+			    "l" 'windmove-right
+
+			    "J" (lambda () (interactive) (split-window-vertically) (windmove-down))
+			    "K" (lambda () (interactive) (split-window-vertically))
+			    "H" (lambda () (interactive) (split-window-horizontally))
+			    "L" (lambda () (interactive) (split-window-horizontally) (windmove-right))
+
+			    "q" 'delete-window)))))
 
 (use-package powerline
 	:init (powerline-default-theme))
