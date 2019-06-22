@@ -25,7 +25,16 @@
 
 (use-package evil
 	:init (evil-mode t)
-				(global-display-line-numbers-mode))
+	:config	
+		(progn 
+			(global-display-line-numbers-mode)
+			(use-package evil-leader
+				:init (global-evil-leader-mode)
+				:config	
+					(progn	
+						(evil-leader/set-leader "SPC")
+						(evil-leader/set-key
+							"q" 'delete-window)))))
 
 (use-package powerline
 	:init (powerline-default-theme))
@@ -39,5 +48,7 @@
 
 (use-package ace-window
 	:init (global-set-key (kbd "M-o") 'ace-window))
+
+(setq initial-buffer-choice "*scratch*")
 
 (setq initial-buffer-choice "*scratch*")

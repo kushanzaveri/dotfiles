@@ -55,7 +55,20 @@ Add repositories from which we'll load packages
 #+BEGIN_SRC emacs-lisp
 (use-package evil
 	:init (evil-mode t)
-				(global-display-line-numbers-mode))
+	:config	
+		(progn 
+			(global-display-line-numbers-mode)
+			(use-package evil-leader
+				:init (global-evil-leader-mode)
+				:config	
+					(progn	
+						(evil-leader/set-leader "SPC")
+						(evil-leader/set-key
+							"j" 'windmove-down
+							"k" 'windmove-up
+							"h" 'windmove-left
+							"l" 'windmove-right
+							"q" 'delete-window)))))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
@@ -84,3 +97,9 @@ Add repositories from which we'll load packages
 #+BEGIN_SRC emacs-lisp
 (setq initial-buffer-choice "*scratch*")
 #+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(setq initial-buffer-choice "*scratch*")
+#+END_SRC
+
+
