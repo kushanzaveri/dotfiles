@@ -30,6 +30,7 @@
 	:init (evil-mode t)
 	:config	
 	(progn 
+	    (show-paren-mode)
 	    (global-display-line-numbers-mode)
 	    (use-package evil-leader
 		    :init (global-evil-leader-mode)
@@ -49,12 +50,9 @@
 
 			    "q" 'delete-window)))))
 
-(use-package flycheck
-	:init (global-flycheck-mode))
-
-(use-package projectile)
-
-(use-package org-plus-contrib)
-
-(use-package ace-window
-	:init (global-set-key (kbd "M-o") 'ace-window))
+(use-package projectile
+    :init (projectile-mode 1)
+    :config
+    (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+   )

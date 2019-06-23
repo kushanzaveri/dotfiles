@@ -68,6 +68,7 @@ Add repositories from which we'll load packages
 	:init (evil-mode t)
 	:config	
 	(progn 
+	    (show-paren-mode)
 	    (global-display-line-numbers-mode)
 	    (use-package evil-leader
 		    :init (global-evil-leader-mode)
@@ -87,29 +88,14 @@ Add repositories from which we'll load packages
 
 			    "q" 'delete-window)))))
 #+END_SRC
-
-*** Flycheck
-
-#+BEGIN_SRC emacs-lisp
-(use-package flycheck
-	:init (global-flycheck-mode))
-#+END_SRC
-
 *** Projectile
     
 #+BEGIN_SRC emacs-lisp
-(use-package projectile)
+(use-package projectile
+    :init (projectile-mode 1)
+    :config
+    (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+   )
 #+END_SRC
 
-*** Org Mode
-
-#+BEGIN_SRC emacs-lisp
-(use-package org-plus-contrib)
-#+END_SRC
-
-*** Ace Window
-
-#+BEGIN_SRC emacs-lisp
-(use-package ace-window
-	:init (global-set-key (kbd "M-o") 'ace-window))
-#+END_SRC
