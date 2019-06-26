@@ -23,21 +23,36 @@
 (add-to-list 'default-frame-alist
              '(font . "Source Code Pro-16"))
 
-(use-package evil
-	:init (evil-mode t)
-				(global-display-line-numbers-mode))
-
 (use-package powerline
 	:init (powerline-default-theme))
 
-(use-package flycheck
-	:init (global-flycheck-mode))
+(use-package evil
+	:init (evil-mode t)
+	:config	
+	(progn 
+	    (show-paren-mode)
+	    (global-display-line-numbers-mode)
+	    (use-package evil-leader
+		    :init (global-evil-leader-mode)
+		    :config	
+		    (progn	
+			(evil-leader/set-leader "SPC")
+			(evil-leader/set-key
+			    "j" 'windmove-down
+			    "k" 'windmove-up
+			    "h" 'windmove-left
+			    "l" 'windmove-right
 
-(use-package projectile)
+			    "J" (lambda () (interactive) (split-window-vertically) (windmove-down))
+			    "K" (lambda () (interactive) (split-window-vertically))
+			    "H" (lambda () (interactive) (split-window-horizontally))
+			    "L" (lambda () (interactive) (split-window-horizontally) (windmove-right))
 
-(use-package org-plus-contrib)
+			    "q" 'delete-window)))))
 
-(use-package ace-window
-	:init (global-set-key (kbd "M-o") 'ace-window))
-
-(setq initial-buffer-choice "*scratch*")
+(use-package projectile
+    :init (projectile-mode 1)
+    :config
+    (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+   )

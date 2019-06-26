@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/kushanzaveri/.oh-my-zsh"
 
-ZSH_THEME="pi"
+ZSH_THEME="theunraveler"
 
 ENABLE_CORRECTION="true"
 
@@ -18,8 +18,7 @@ source $ZSH/oh-my-zsh.sh
 export LSCOLORS=FxExBxDxCxegedabagacad
 
 alias cl="clear"
-
-echo $PATH
+alias vi="vim"
 
 export PATH="$PATH:/usr/local/bin/scripts:~/Library/Python/2.7/bin:~/.vimpkg/bin:$HOME/.asdf/bin:$HOME/.asdf/shims"
 
