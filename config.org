@@ -85,6 +85,10 @@ Add repositories from which we'll load packages
 			    "K" (lambda () (interactive) (split-window-vertically))
 			    "H" (lambda () (interactive) (split-window-horizontally))
 			    "L" (lambda () (interactive) (split-window-horizontally) (windmove-right))
+			    
+			    "o" 'find-file
+			    
+			    "p" 'projectile-commander
 
 			    "q" 'delete-window)))))
 #+END_SRC
@@ -94,8 +98,9 @@ Add repositories from which we'll load packages
 (use-package projectile
     :init (projectile-mode 1)
     :config
+    (setq projectile-project-search-path '("~/Documents"))
     (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-   )
+    )
 #+END_SRC
 
