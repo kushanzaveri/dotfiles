@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/kushanzaveri/.oh-my-zsh"
 
-ZSH_THEME="pi"
+ZSH_THEME="theunraveler"
 
 ENABLE_CORRECTION="true"
 
