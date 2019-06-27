@@ -68,7 +68,6 @@ Add repositories from which we'll load packages
 	:init (evil-mode t)
 	:config	
 	(progn 
-	    (show-paren-mode)
 	    (global-display-line-numbers-mode)
 	    (use-package evil-leader
 		    :init (global-evil-leader-mode)
@@ -86,10 +85,12 @@ Add repositories from which we'll load packages
 			    "H" (lambda () (interactive) (split-window-horizontally))
 			    "L" (lambda () (interactive) (split-window-horizontally) (windmove-right))
 			    
-			    "o" 'find-file
-			    
+			    "f" 'find-file
+			    "n" 'switch-to-buffer
+
 			    "p" 'projectile-commander
 
+			    "b" 'kill-buffer
 			    "q" 'delete-window)))))
 #+END_SRC
 *** Projectile
@@ -102,5 +103,11 @@ Add repositories from which we'll load packages
     (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
     )
+#+END_SRC
+
+*** Uncategorized
+
+#+BEGIN_SRC emacs-lisp
+(desktop-save-mode 1)
 #+END_SRC
 
