@@ -59,39 +59,54 @@ Add repositories from which we'll load packages
 	:init (powerline-default-theme))
 #+END_SRC
 
+** Behaviour
+
+#+BEGIN_SRC emacs-lisp
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq create-lockfiles nil)
+(setq backup-directory-alist '(("" . "~/.emacs.d/backup")))
+#+END_SRC
+  
 ** Extensions
 
 *** Evil Mode
 
+**** Evil
 #+BEGIN_SRC emacs-lisp
 (use-package evil
 	:init (evil-mode t)
+	:after (evil-leader)
 	:config	
-	(progn 
-	    (global-display-line-numbers-mode)
-	    (use-package evil-leader
-		    :init (global-evil-leader-mode)
-		    :config	
-		    (progn	
-			(evil-leader/set-leader "SPC")
-			(evil-leader/set-key
-			    "j" 'windmove-down
-			    "k" 'windmove-up
-			    "h" 'windmove-left
-			    "l" 'windmove-right
+	(setq evil-default-cursor t)
+	(global-display-line-numbers-mode))
+#+END_SRC
 
-			    "J" (lambda () (interactive) (split-window-vertically) (windmove-down))
-			    "K" (lambda () (interactive) (split-window-vertically))
-			    "H" (lambda () (interactive) (split-window-horizontally))
-			    "L" (lambda () (interactive) (split-window-horizontally) (windmove-right))
-			    
-			    "f" 'find-file
-			    "n" 'switch-to-buffer
+**** Evil Leader
 
-			    "p" 'projectile-commander
+#+BEGIN_SRC emacs-lisp
+(use-package evil-leader
+    :init (global-evil-leader-mode)
+    :config	
+    (evil-leader/set-leader "SPC")
+    (evil-leader/set-key
+	"j" 'windmove-down
+	"k" 'windmove-up
+	"h" 'windmove-left
+	"l" 'windmove-right
 
-			    "b" 'kill-buffer
-			    "q" 'delete-window)))))
+	"J" (lambda () (interactive) (split-window-vertically) (windmove-down))
+	"K" (lambda () (interactive) (split-window-vertically))
+	"H" (lambda () (interactive) (split-window-horizontally))
+	"L" (lambda () (interactive) (split-window-horizontally) (windmove-right))
+
+	"f" 'find-file
+	"n" 'switch-to-buffer
+
+	"p" 'projectile-commander
+
+	"b" 'kill-buffer
+	"q" 'delete-window))
 #+END_SRC
 *** Projectile
     
