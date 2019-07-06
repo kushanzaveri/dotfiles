@@ -34,16 +34,15 @@ Add repositories from which we'll load packages
 #+END_SRC
 
 ** Visuals
-
-*** Spacemacs 
+*** Theme
 
 #+BEGIN_SRC emacs-lisp
-(use-package spacemacs-theme
-  :init (load-theme 'spacemacs-dark t))
+(use-package one-themes
+  :init (load-theme 'one-dark t))
 #+END_SRC
 
 *** Emacs GUI
-    
+
 #+BEGIN_SRC emacs-lisp
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
@@ -73,6 +72,7 @@ Add repositories from which we'll load packages
 *** Evil Mode
 
 **** Evil
+
 #+BEGIN_SRC emacs-lisp
 (use-package evil
 	:init (evil-mode t)
@@ -104,10 +104,27 @@ Add repositories from which we'll load packages
 	"n" 'switch-to-buffer
 
 	"p" 'projectile-commander
+	"g" 'magit-status
 
 	"b" 'kill-buffer
 	"q" 'delete-window))
 #+END_SRC
+
+**** Evil Magit
+
+#+BEGIN_SRC emacs-lisp
+(use-package evil-magit
+  :after (magit evil))
+#+END_SRC
+
+*** Magit
+
+#+BEGIN_SRC emacs-lisp
+(use-package magit
+  :ensure t
+  :bind (("C-x g" . magit-status)))
+#+END_SRC
+
 *** Projectile
     
 #+BEGIN_SRC emacs-lisp
