@@ -33,15 +33,17 @@ Add repositories from which we'll load packages
 	use-package-always-ensure t)
 #+END_SRC
 
-** Visuals
-*** Theme
+
+* Visuals
+
+** Theme
 
 #+BEGIN_SRC emacs-lisp
 (use-package one-themes
   :init (load-theme 'one-dark t))
 #+END_SRC
 
-*** Emacs GUI
+** Emacs GUI
 
 #+BEGIN_SRC emacs-lisp
 (menu-bar-mode -1)
@@ -51,7 +53,7 @@ Add repositories from which we'll load packages
              '(font . "Source Code Pro-14"))
 #+END_SRC
 
-*** Powerline
+** Powerline
 
 #+BEGIN_SRC emacs-lisp
 (use-package powerline
@@ -67,11 +69,11 @@ Add repositories from which we'll load packages
 (setq backup-directory-alist '(("" . "~/.emacs.d/backup")))
 #+END_SRC
   
-** Extensions
-   
-*** Evil Mode
 
-**** Evil
+* Extensions
+   
+** EVIL
+*** Evil
 
 #+BEGIN_SRC emacs-lisp
 (use-package evil
@@ -82,7 +84,7 @@ Add repositories from which we'll load packages
 	(global-display-line-numbers-mode))
 #+END_SRC
 
-**** Evil Leader
+*** Evil Leader
 
 #+BEGIN_SRC emacs-lisp
 (use-package evil-leader
@@ -90,6 +92,7 @@ Add repositories from which we'll load packages
     :config	
     (evil-leader/set-leader "SPC")
     (evil-leader/set-key
+
 	"j" 'windmove-down
 	"k" 'windmove-up
 	"h" 'windmove-left
@@ -100,24 +103,29 @@ Add repositories from which we'll load packages
 	"H" (lambda () (interactive) (split-window-horizontally))
 	"L" (lambda () (interactive) (split-window-horizontally) (windmove-right))
 
-	"f" 'find-file
-	"n" 'switch-to-buffer
+	"[" 'shrink-window-horizontally
+	"]" 'enlarge-window-horizontally
+	"=" 'enlarge-window
 
+	"f" 'find-file
 	"p" 'projectile-commander
 	"g" 'magit-status
+	
+	;; Buffer Actions
+	"bk" 'kill-buffer
+	"bs" 'switch-to-buffer
 
-	"b" 'kill-buffer
 	"q" 'delete-window))
 #+END_SRC
 
-**** Evil Magit
+*** Evil Magit
 
 #+BEGIN_SRC emacs-lisp
 (use-package evil-magit
   :after (magit evil))
 #+END_SRC
 
-*** Magit
+** Magit
 
 #+BEGIN_SRC emacs-lisp
 (use-package magit
@@ -125,7 +133,7 @@ Add repositories from which we'll load packages
   :bind (("C-x g" . magit-status)))
 #+END_SRC
 
-*** Projectile
+** Projectile
     
 #+BEGIN_SRC emacs-lisp
 (use-package projectile
@@ -137,7 +145,7 @@ Add repositories from which we'll load packages
     )
 #+END_SRC
 
-*** Uncategorized
+** Uncategorized
 
 #+BEGIN_SRC emacs-lisp
 (desktop-save-mode 1)
