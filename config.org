@@ -69,6 +69,11 @@ Add repositories from which we'll load packages
 (setq backup-directory-alist '(("" . "~/.emacs.d/backup")))
 #+END_SRC
   
+** Text Editor Variables
+
+#+BEGIN_SRC emacs-lisp
+(setq custom-tab-width 2)
+#+END_SRC
 
 * Extensions
    
@@ -81,6 +86,7 @@ Add repositories from which we'll load packages
 	:after (evil-leader)
 	:config	
 	(setq evil-default-cursor t)
+	(setq-default evil-shift-width custom-tab-width)
 	(global-display-line-numbers-mode))
 #+END_SRC
 
