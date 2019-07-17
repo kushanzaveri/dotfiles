@@ -75,6 +75,7 @@ Add repositories from which we'll load packages
 (setq custom-tab-width 2)
 #+END_SRC
 
+
 * Extensions
    
 ** EVIL
@@ -121,6 +122,7 @@ Add repositories from which we'll load packages
 	"bk" 'kill-buffer
 	"bs" 'switch-to-buffer
 
+	"cc" 'yafolding-toggle-element
 	"q" 'delete-window))
 #+END_SRC
 
@@ -149,6 +151,13 @@ Add repositories from which we'll load packages
     (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
     )
+#+END_SRC
+
+** Yafolding
+    
+#+BEGIN_SRC emacs-lisp
+(use-package yafolding
+  :init (yafolding-mode t))
 #+END_SRC
 
 ** Uncategorized
