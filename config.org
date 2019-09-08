@@ -37,6 +37,7 @@ Add repositories from which we'll load packages
 
 #+BEGIN_SRC emacs-lisp
 (desktop-save-mode 1)
+(setq-default indent-tabs-mode nil)
 #+END_SRC
 
 
@@ -173,6 +174,7 @@ Add repositories from which we'll load packages
 (desktop-save-mode 1)
 #+END_SRC
 
+
 * Language Support
 
 ** Elixir
@@ -190,3 +192,26 @@ Add repositories from which we'll load packages
     :after elixir-mode)
 #+END_SRC
 
+** Docker
+
+#+BEGIN_SRC emacs-lisp
+(use-package dockerfile-mode)
+#+END_SRC
+** YAML
+
+#+BEGIN_SRC emacs-lisp
+(use-package yaml-mode
+  :mode ("\\.yml$" . yaml-mode))
+#+END_SRC
+
+** Markdown
+
+#+BEGIN_SRC emacs-lisp
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md$" . gfm-mode)
+         ("\\.md$" . markdown-mode)
+         ("\\.markdown$" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+#+END_SRC
